@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -27,6 +27,10 @@ Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create'
 Route::post('/post', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
 Route::get('/post/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
 Route::get('/post/delete/{id}', [App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
+
+//商品
+Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('product.index');
+
 
 
 

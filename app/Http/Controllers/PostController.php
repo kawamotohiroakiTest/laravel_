@@ -26,16 +26,20 @@ class PostController extends Controller
         if ($request->id) {
             $post = POST::find($request->id);
         }
-        $post->name = $request->name;
-        $post->title = $request->title;
-        $post->content = $request->content;
+        $post->post_name = $request->post_name;
+        $post->post_title = $request->post_title;
+        $post->post_content = $request->post_content;
+        $post->post_image = $request->file('post_image')->getClientOriginalName();
+        
+        $document = $request->post_image;
+        $document->storeAs('',$post->post_image,'public');
         $post->save();
         return redirect()->route('post.index');
     }
 
     public function edit($id)
     {
-        $post = Post::find($id);
+        $post = Post::where('id', '=', $id)->first();
         return view('post.edit', compact('post'));
     }
 
