@@ -30,6 +30,11 @@ Route::get('/post/delete/{id}', [App\Http\Controllers\PostController::class, 'de
 
 //商品
 Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('product.index');
+Route::get('/product', [App\Http\Controllers\ProductController::class, 'product'])->name('product.product');
+Route::get('/category', [App\Http\Controllers\ProductController::class, 'category'])->name('product.category');
+Route::get('/cart', [App\Http\Controllers\ProductController::class, 'cart'])->name('product.cart');
+
+
 
 
 
