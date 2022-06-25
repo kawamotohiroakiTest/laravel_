@@ -6,11 +6,16 @@
         <h1>シングル ポケットコイルマットレス(EP 厚さ20cm)</h1>
         <p>商品コード <span>5650307</span></p>
         <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>(100)</i></p>
-        <p><span>5サイズ</span><span>動画</span><span>ネット限定</span></p>
+        <div class="flex product_tag_area">
+            <div><span>商品コード</span></div>
+            <div><span>カラー</span></div>
+            <div><span>サイズ</span></div>
+            <div><span>素材</span></div>
+        </div>    
     </section>
     <section>
-        <div class="flex main_cart">
-            <section>
+        <div class="flex main_product">
+            <section class="product_main_area">
                 <div class="flex img_detail">
                     <section class="section_img">
                         <div><img src="{{ asset('storage/testimage.jpeg') }}"></div>
@@ -27,13 +32,15 @@
                             <div><img src="{{ asset('storage/testimage.jpeg') }}"></div>
                         </div>
                     </section>
-                    <section>
+                    <section class="section_detail">
                         <p>サイズ：<span>シングル</span></p>
-                        <select name="">
-                            <option value="">シングル</option>
-                            <option value="">セミダブル</option>
-                            <option value="">クイーン</option>
-                        </select>
+                        <div class="product_select">
+                            <select name="" class="form-select">
+                                <option value="">シングル</option>
+                                <option value="">セミダブル</option>
+                                <option value="">クイーン</option>
+                            </select>
+                        </div>
                         <p>点で支えるポケットコイルが体にフィットします。<br>側面は３Ｄメッシュで通気性向上。</p>
                         <h2><span>8,990</span>円</h2>
                         <p>仕様・サイズ</p>
@@ -44,20 +51,20 @@
                             <img src="{{ asset('storage/testimage.jpeg') }}" style="width: 100px;">
                         </p>
                         <div>
-                            <div><span>商品コード</span><span>5650307</span></div>
-                            <div><span>カラー</span><span>ホワイト</span></div>
-                            <div><span>サイズ</span><span>幅97✖️奥行195✖️高さ20cm</span></div>
-                            <div><span>素材</span><span>ポリエステル</span></div>
+                            <p class="product_cart_content"><span>商品コード</span><span>5650307</span></p>
+                            <p class="product_cart_content"><span>カラー</span><span>ホワイト</span></p>
+                            <p class="product_cart_content"><span>サイズ</span><span>幅97✖️奥行195✖️高さ20cm</span></p>
+                            <p class="product_cart_content"><span>素材</span><span>ポリエステル</span></p>
                         </div>
                     </section>
                 </div>
             </section>
             <section class="cart">
-                <p>納品方法：<span>玄関先迄納品（店舗受取可能商品）</span></p>
-                <p>配送目安：<span>2〜6日で出荷</span></p>
-                <p>返品・交換：<span>14日返品可能</span></p>
-                <p>送料：<span>有料</span></p>
-                <p>数量：<span><input type="text" value="" class="num_text_s"></span></p>
+                <p class="product_cart_content">納品方法：<span>玄関先迄納品（店舗受取可能商品）</span></p>
+                <p class="product_cart_content">配送目安：<span>2〜6日で出荷</span></p>
+                <p class="product_cart_content">返品・交換：<span>14日返品可能</span></p>
+                <p class="product_cart_content">送料：<span>有料</span></p>
+                <p class="product_cart_content">数量：<span><input type="text" value="" class="num_text_s"></span></p>
                 <h2><span>8,990</span>円</h2>
                 <p><input type="checkbox" id="cart_button" class="hidden_check">
                     <label class="cart_button" for="cart_button">
@@ -82,88 +89,3 @@
   </div>
 </body>
 @endsection
-<style>
-    #wrapper {
-        margin: 50px;
-        max-width: 2000px;
-    }
-    .flex {
-        display: flex;
-    }
-    .main_cart {
-        gap: 20px;
-    }
-    .img_detail {
-        gap: 30px;
-    }
-    .hidden_check {
-        display: none;
-    }
-    input:checked + label.cart_button {
-        background: green;
-    }    
-    .cart {
-        width: 70%;
-        background: #f7f7f7;;
-        padding: 20px;
-    }
-    .cart span {
-        font-weight: bold;
-    }
-    .num_text_s {
-        width: 50px;
-    }
-    h2 span {
-        font-size: 35px;
-    }
-    .cart h2 {
-        font-size: 1.0em;
-    }
-    .cart_button {
-        width: 100%;
-        height: 40px;
-        background: #eb6157;
-        color: #ffffff;
-        border: none;
-        text-align: center;
-        padding-top: 7px;
-    }
-    input:checked + label.like_button {
-        display: none;
-    }
-    .img_detail section {
-        width: 50%;
-    }
-    .section_img img {
-        width: 100%;
-    }
-    .sub_img {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .sub_img div {
-        width: 20%;
-        gap: 10px;
-        padding-top:10px;
-    }
-    @media screen and (max-width: 1080px) {
-        .img_detail {
-            flex-wrap: wrap;
-        }
-        .img_detail section {
-            width: 100%;
-        }
-        .cart {
-            width: 100%;
-        }
-    }
-    @media screen and (max-width: 710px) {
-        .main_cart {
-            flex-wrap: wrap;
-        }
-    }
-
-    /* .like_button_checked {
-        display: none;
-    } */
-</style>

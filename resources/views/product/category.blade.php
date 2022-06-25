@@ -6,27 +6,61 @@
         <div class="flex main_search">
             <section class="search">
                 <h1>条件で絞り込む</h1>
-                <div>
-                    <h2>機能・仕様</h2>
-                    <p><input type="checkbox" id="term1"><label for="term1">2層式ポケットコイル</label></p>
-                    <p><input type="checkbox" id="term2"><label for="term2">3層式ポケットコイル</label></p>
+
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item accordion-item_search">
+                        <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button accordion-item_search" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            機能・仕様
+                        </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+                        <div class="accordion-body accordion-item_search">
+                            <p><input type="checkbox" id="term1"><label class="product_search_label" for="term1">2層式ポケットコイル</label></p>
+                            <p><input type="checkbox" id="term2"><label class="product_search_label" for="term2">3層式ポケットコイル</label></p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item accordion-item_search">
+                        <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button accordion-item_search" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            タイプ
+                        </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+                        <div class="accordion-body accordion-item_search">
+                            <p><input type="checkbox" id="term3"><label class="product_search_label" for="term3">硬め</label></p>
+                            <p><input type="checkbox" id="term4"><label class="product_search_label" for="term4">普通</label></p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item accordion-item_search">
+                        <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button accordion-item_search" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            価格
+                        </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree">
+                        <div class="accordion-body accordion-item_search">
+                            <p><input type="checkbox" id="term5"><label class="product_search_label" for="term5">¥0〜￥10,000</label></p>
+                            <p><input type="checkbox" id="term6"><label class="product_search_label" for="term6">¥￥10,000〜￥20,000</label></p>
+                        </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h2>タイプ</h2>
-                    <p><input type="checkbox" id="term3"><label for="term3">硬め</label></p>
-                    <p><input type="checkbox" id="term4"><label for="term4">普通</label></p>
+                <div class="d-grid gap-2 product_search_button">
+                    <button class="btn btn-success">条件を絞り込む</button>
                 </div>
-                <button>条件を絞り込む</button>
             </section>
             <section class="content">
                 <div class="flex img_detail">
-                    <section>
-                        <h1>ポケットコイルマットレス</h1>
+                    <section class="category_main">
+                        <h1 class="product_title">ポケットコイルマットレス</h1>
                         <p>点で支えるポケットコイルが体にフィットします。<br>側面は３Ｄメッシュで通気性向上。</p>
-                        <div class="flex">
-                            <p>全<span>32</span>件 <span>1</span>〜<span>32</span></p>
+                        <div class="flex category_count_area">
+                            <p>全<span class="category_count_all">32</span>件　　　<span>1</span>〜<span>32</span>件</p>
                             <div class="category_count">
-                                <select name="">
+                                <select name="" class="form-select">
                                     <option value="">おすすめ順</option>
                                     <option value="">価格が安い順</option>
                                     <option value="">評価が高い順</option>
@@ -39,10 +73,10 @@
                                     <p class="product_list_img">
                                         <img src="{{ asset('storage/testimage.jpeg') }}">
                                     </p>
-                                    <p>ポケットコイルマットレス</p>
+                                    <p class="product_content_title">ポケットコイルマットレス</p>
                                     <h2><span>8,990</span>円</h2>
                                     <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>(100)</i></p>
-                                    <div>
+                                    <div class="flex product_tag_area">
                                         <div><span>商品コード</span></div>
                                         <div><span>カラー</span></div>
                                         <div><span>サイズ</span></div>
@@ -158,108 +192,3 @@
   </div>
 </body>
 @endsection
-<style>
-    #wrapper {
-        margin: 50px;
-        max-width: 2000px;
-    }
-    .flex {
-        display: flex;
-    }
-    .content {
-        width: 70%;
-    }
-    .category_count {
-        margin-left: 50px;
-    }
-    .main_search {
-        gap: 20px;
-    }
-    .img_detail {
-        gap: 30px;
-    }
-    .hidden_check {
-        display: none;
-    }
-    input:checked + label.cart_button {
-        background: green;
-    }    
-    .search {
-        width: 30%;
-        background: #f7f7f7;;
-        padding: 20px;
-    }
-    .search span {
-        font-weight: bold;
-    }
-    .num_text_s {
-        width: 50px;
-    }
-    h2 span {
-        font-size: 35px;
-    }
-    .search h2 {
-        font-size: 1.0em;
-    }
-    .search_button {
-        width: 100%;
-        height: 40px;
-        background: #eb6157;
-        color: #ffffff;
-        border: none;
-        text-align: center;
-        padding-top: 7px;
-    }
-    input:checked + label.like_button {
-        display: none;
-    }
-    .section_img img {
-        width: 100%;
-    }
-    .sub_img {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 30px;
-    }
-    .sub_img div {
-        width: 20%;
-        gap: 10px;
-        padding-top:10px;
-    }
-    .product_list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 50px;
-        margin-top: 50px;
-    }
-    .product_list article {
-        width: 20%;
-    }
-    .product_list article a {
-        text-decoration: none;
-        color: #000;
-    }
-    .product_list_img {
-        width: 100%;
-    }
-    .product_list_img img {
-        width: 100%;
-    }
-    @media screen and (max-width: 1080px) {
-        .img_detail {
-            flex-wrap: wrap;
-        }
-        .search {
-            width: 100%;
-        }
-    }
-    @media screen and (max-width: 710px) {
-        .main_search {
-            flex-wrap: wrap;
-        }
-    }
-
-    /* .like_button_checked {
-        display: none;
-    } */
-</style>
