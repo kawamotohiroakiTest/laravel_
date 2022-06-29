@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use App\Models\Product;
@@ -11,7 +12,9 @@ class UserController extends Controller
 {
     public function index()
     {
-        $products = DB::select('select * from products');
+        $user = Auth::id();
+        dump($user);
+        $products = DB::table('products')->whereRaw("products_userid = :user", ["user" => $user])->get();
         $data = ['title' => '投稿リスト', 'products' => $products];
 
         return view('user/index', $data);

@@ -35,11 +35,13 @@ Route::get('/category', [App\Http\Controllers\ProductController::class, 'categor
 Route::get('/cart', [App\Http\Controllers\ProductController::class, 'cart'])->name('product.cart');
 
 //ユーザー
-Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
-Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
-Route::post('/user', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
-Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
-Route::get('/user/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('user.delete');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+    Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
+    Route::post('/user', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+    Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+    Route::get('/user/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('user.delete');
+});
 
 
 

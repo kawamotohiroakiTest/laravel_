@@ -16,6 +16,7 @@ class ProductFactory extends Factory
     {
         return [
             //
+            'products_userid' => $this->faker->randomNumber(1),
             'products_name' => $this->faker->unique()->word(),
             'products_code' => $this->faker->unique()->randomNumber(4),
             'products_price' => $this->faker->randomNumber(5),
