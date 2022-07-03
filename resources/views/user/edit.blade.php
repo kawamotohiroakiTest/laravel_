@@ -14,19 +14,19 @@
         <div class="post_form_area">
             <div class="post_flex">
                 <label for="exampleInputEmail1" class="form-label post_form_label">商品コード</label>
-                <input name="products_code" class="form-control"  value="{{ $product->products_code }}"/>
+                <input type="number" name="products_code" class="form-control"  value="{{ $product->products_code }}"/>
             </div>
         </div>
         <div class="post_form_area">
             <div class="post_flex">
                 <label for="exampleInputEmail1" class="form-label post_form_label">商品価格</label>
-                <input name="products_price" class="form-control" value="{{ $product->products_price }}">
+                <input type="number" name="products_price" class="form-control" value="{{ $product->products_price }}">
             </div>
         </div>
         <div class="post_form_area">
             <div class="post_flex">
                 <label for="exampleInputEmail1" class="form-label post_form_label">商品在庫</label>
-                <input name="products_stock" class="form-control" value="{{ $product->products_stock }}">
+                <input type="number" name="products_stock" class="form-control" value="{{ $product->products_stock }}">
             </div>
         </div>
         <div class="post_form_area">
@@ -109,7 +109,7 @@
         <div class="post_form_area">
             <div class="post_flex">
                 <label for="exampleInputEmail1" class="form-label post_form_label">商品の送料</label>
-                <input name="products_postage" class="form-control"  value="{{ $product->products_postage }}">
+                <input type="number" name="products_postage" class="form-control"  value="{{ $product->products_postage }}">
             </div>
         </div>
         <div class="post_form_area">

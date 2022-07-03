@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<script type="text/javascript" src="../../../js/cart.js"></script>
 <body>
   <div id="wrapper">
     @foreach($products as $product)
@@ -18,7 +19,9 @@
                 <section class="product_main_area">
                     <div class="flex img_detail">
                         <section class="section_img">
-                            <div><img src="{{ asset('storage/testimage.jpeg') }}"></div>
+                            <div>
+                                <img src="{{ asset('storage/'.$product->products_image) }}">
+                            </div>
                             <div class="flex sub_img">
                                 <div><img src="{{ asset('storage/testimage.jpeg') }}"></div>
                                 <div><img src="{{ asset('storage/testimage.jpeg') }}"></div>
@@ -42,7 +45,7 @@
                                 </select>
                             </div>
                             <p>点で支えるポケットコイルが体にフィットします。<br>側面は３Ｄメッシュで通気性向上。</p>
-                            <h2><span>8,990</span>円</h2>
+                            <h2><span>{{ number_format($product->products_price) }}</span>円</h2>
                             <p>仕様・サイズ</p>
                             <p>
                                 <img src="{{ asset('storage/testimage.jpeg') }}" style="width: 100px;">
@@ -64,13 +67,14 @@
                     <p class="product_cart_content">配送目安：<span>{{ $product->products_code }}</span></p>
                     <p class="product_cart_content">返品・交換：<span>{{ $product->products_return }}</span></p>
                     <p class="product_cart_content">送料：<span>{{ $product->products_postage }}</span></p>
-                    <p class="product_cart_content">数量：<span><input type="text" value="" class="num_text_s"></span></p>
+                    <!-- <p class="product_cart_content">数量：<span><input type="text" value="" class="num_text_s"></span></p> -->
                     <h2><span>{{ number_format($product->products_price) }}</span>円</h2>
-                    <p><input type="checkbox" id="cart_button" class="hidden_check">
-                        <label class="cart_button" for="cart_button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16"><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z"/></svg>
-                            カートに入れる
-                        </label>
+                    <p>
+                        <form action="{{ route('cart.index') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="submit" value="カートに入れる">
+                        </form>
                     </p>
                     <p><input type="checkbox" id="like_button" class="hidden_check">
                         <label class="like_button" for="like_button">

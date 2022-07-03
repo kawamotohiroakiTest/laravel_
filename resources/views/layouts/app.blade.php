@@ -32,6 +32,7 @@
 
     <!-------------------JS---------------------------------------------------------------->  
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/cart.js') }}"></script>
     <!------------------------------------------------------------------------------------->  
 
 </head>

@@ -32,6 +32,7 @@
             <td>{{ $product->products_color }}</td>
             <td>{{ $product->created_at }}</td>
             <td>{{ $product->updated_at }}</td>
+            <td><a href="{{ route('product.product', $product->id) }}" class="btn btn-success">詳細</a></td>
             <td><a href="{{ route('user.edit', $product->id) }}" class="btn btn-success">編集</a></td>
             <td><a href="{{ route('user.delete', $product->id) }}" class="btn btn-danger" onClick="delete_alert(event);return false;">削除</a></td>
         </tr>

@@ -12,6 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
+
         $user = Auth::id();
         dump($user);
         $products = DB::table('products')->whereRaw("products_userid = :user", ["user" => $user])->get();
@@ -31,15 +32,27 @@ class UserController extends Controller
     public function edit($id)
     {
         $product = Product::where('id', '=', $id)->first();
-        // dd($product);
         return view('user.edit', compact('product'));
     }
     public function store(Request $request)
     {
+        $validate_rule = [
+            'products_name' => 'required|max:50',
+            'products_code' => 'required|max:10',
+            'products_price' => 'required|max:10',
+            'products_stock' => 'required|max:4',
+            'products_review' => 'max:2',
+            'products_size' => 'max:4',
+            'products_description' => 'max:200',
+            'products_color' => 'max:4',
+        ];
+        $this->validate($request, $validate_rule);
         $post = new Product;
         if ($request->id) {
             $post = Product::find($request->id);
         }
+        $user_id = Auth::id();
+        $post->products_userid = $user_id;
         $post->products_name = $request->products_name;
         $post->products_code = $request->products_code;
         $post->products_price = $request->products_price;
@@ -54,9 +67,11 @@ class UserController extends Controller
         $post->products_deliverymethod = $request->products_deliverymethod;
         $post->products_return = $request->products_return;
         $post->products_postage = $request->products_postage;
-        $post->products_image = $request->file('products_image')->getClientOriginalName();
-        $document = $request->products_image;
-        $document->storeAs('',$post->products_image,'public');
+        if($request->filled('products_image')) {
+            $post->products_image = $request->file('products_image')->getClientOriginalName();
+            $document = $request->products_image;
+            $document->storeAs('',$post->products_image,'public');    
+        }
         $post->save();
 
         return redirect()->route('user.index');
