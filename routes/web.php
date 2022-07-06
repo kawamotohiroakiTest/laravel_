@@ -21,6 +21,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//ログアウト
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
+
 //記事投稿
 Route::get('/post', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
 Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create'])->name('post.create');

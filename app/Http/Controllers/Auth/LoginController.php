@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+    protected function loggedOut(\Illuminate\Http\Request $request) {
+        return redirect('login');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
