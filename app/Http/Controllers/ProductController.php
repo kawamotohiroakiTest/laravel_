@@ -16,7 +16,6 @@ class ProductController extends Controller
     public function product($id)
     {   
         $products = DB::select('select * from products where id = '.$id);
-        dump($products);
         return view('product/product', compact('products'));
     }
 
@@ -32,8 +31,9 @@ class ProductController extends Controller
         $query = Product::query();
         $query->where('products_name', 'LIKE', "%{$key}%");
         $products = $query->get();
-        dump($products);
-        return view('product/search', compact('products'));
+        $count = $products->count();
+        // dump($products);
+        return view('product/search', compact('key','count','products'));
     }
 
 

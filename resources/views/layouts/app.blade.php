@@ -37,7 +37,7 @@
 
 </head>
 <body>
-    <div id="app">
+    <div id="">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -49,17 +49,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="flex header_search">
-                        <div>
+                        <!-- <div>
                             <select name="header_category" class="form-select header_category" aria-label="Default select example">
                                 <option value="1">カテゴリ1</option>
                                 <option value="2">カテゴリ2</option>
                                 <option value="3">カテゴリ3</option>
                                 <option value="4">カテゴリ4</option>
                             </select>
-                        </div>
+                        </div> -->
                         <form action="{{ route('product.search') }}" method="GET" >
-                            <div><input type="text" class="form-control" placeholder="検索" value="" name="key"></div>
-                            <div><input type="submit" class="btn btn-success" value="検索"></div>
+                            <div>
+                                <div><input type="text" class="form-control" placeholder="検索" value="" name="key"></div>
+                                <div><input type="submit" class="btn btn-success" value="検索"></div>
+                            </div>
                         </form>
                     </div>
                     <!-- Left Side Of Navbar -->
@@ -97,9 +99,13 @@
                                     カート
                                     </a>
                                 </div>
+                                <div>
+                                    <a class="dropdown-item" href="/logout">
+                                        ログアウト
+                                    </a>
+                                </div>
                             </div>
-
-                            <li class="nav-item dropdown">
+                            <!-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -115,7 +121,7 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            </li> -->
                         @endguest
                     </ul>
                 </div>

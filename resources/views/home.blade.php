@@ -14,8 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
-                    <a href="/post/create" class="btn btn-primary">投稿する</a>
+                    ようこそ
+                    <a href="/user" class="btn btn-primary">投稿する</a>
+                    <a href="/" class="btn btn-primary">トップページへ</a>
                 </div>
             </div>
         </div>

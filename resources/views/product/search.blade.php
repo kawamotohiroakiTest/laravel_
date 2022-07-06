@@ -56,10 +56,9 @@
             <section class="content">
                 <div class="flex img_detail">
                     <section class="category_main">
-                        <h1 class="product_title">ポケットコイルマットレス</h1>
-                        <p>点で支えるポケットコイルが体にフィットします。<br>側面は３Ｄメッシュで通気性向上。</p>
+                        <h1 class="product_title">{{ $key }}の検索結果</h1>
                         <div class="flex category_count_area">
-                            <p>全<span class="category_count_all">32</span>件　　　<span>1</span>〜<span>32</span>件</p>
+                            <p>全<span class="category_count_all">{{ $count }}</span>件</p>
                             <div class="category_count">
                                 <select name="" class="form-select">
                                     <option value="">おすすめ順</option>
@@ -87,104 +86,6 @@
                                     </a>
                                 </article>
                             @endforeach
-                            <article>
-                                <p class="product_list_img">
-                                    <img src="{{ asset('storage/testimage.jpeg') }}">
-                                </p>
-                                <p>ポケットコイルマットレス</p>
-                                <h2><span>8,990</span>円</h2>
-                                <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>(100)</i></p>
-                                <div>
-                                    <div><span>商品コード</span></div>
-                                    <div><span>カラー</span></div>
-                                    <div><span>サイズ</span></div>
-                                    <div><span>素材</span></div>
-                                </div>
-                            </article>
-                            <article>
-                                <p class="product_list_img">
-                                    <img src="{{ asset('storage/testimage.jpeg') }}">
-                                </p>
-                                <p>ポケットコイルマットレス</p>
-                                <h2><span>8,990</span>円</h2>
-                                <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>(100)</i></p>
-                                <div>
-                                    <div><span>商品コード</span></div>
-                                    <div><span>カラー</span></div>
-                                    <div><span>サイズ</span></div>
-                                    <div><span>素材</span></div>
-                                </div>
-                            </article>
-                            <article>
-                                <p class="product_list_img">
-                                    <img src="{{ asset('storage/testimage.jpeg') }}">
-                                </p>
-                                <p>ポケットコイルマットレス</p>
-                                <h2><span>8,990</span>円</h2>
-                                <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>(100)</i></p>
-                                <div>
-                                    <div><span>商品コード</span></div>
-                                    <div><span>カラー</span></div>
-                                    <div><span>サイズ</span></div>
-                                    <div><span>素材</span></div>
-                                </div>
-                            </article>
-                            <article>
-                                <p class="product_list_img">
-                                    <img src="{{ asset('storage/testimage.jpeg') }}">
-                                </p>
-                                <p>ポケットコイルマットレス</p>
-                                <h2><span>8,990</span>円</h2>
-                                <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>(100)</i></p>
-                                <div>
-                                    <div><span>商品コード</span></div>
-                                    <div><span>カラー</span></div>
-                                    <div><span>サイズ</span></div>
-                                    <div><span>素材</span></div>
-                                </div>
-                            </article>
-                            <article>
-                                <p class="product_list_img">
-                                    <img src="{{ asset('storage/testimage.jpeg') }}">
-                                </p>
-                                <p>ポケットコイルマットレス</p>
-                                <h2><span>8,990</span>円</h2>
-                                <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>(100)</i></p>
-                                <div>
-                                    <div><span>商品コード</span></div>
-                                    <div><span>カラー</span></div>
-                                    <div><span>サイズ</span></div>
-                                    <div><span>素材</span></div>
-                                </div>
-                            </article>
-                            <article>
-                                <p class="product_list_img">
-                                    <img src="{{ asset('storage/testimage.jpeg') }}">
-                                </p>
-                                <p>ポケットコイルマットレス</p>
-                                <h2><span>8,990</span>円</h2>
-                                <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>(100)</i></p>
-                                <div>
-                                    <div><span>商品コード</span></div>
-                                    <div><span>カラー</span></div>
-                                    <div><span>サイズ</span></div>
-                                    <div><span>素材</span></div>
-                                </div>
-                            </article>
-                            <article>
-                                <p class="product_list_img">
-                                    <img src="{{ asset('storage/testimage.jpeg') }}">
-                                </p>
-                                <p>ポケットコイルマットレス</p>
-                                <h2><span>8,990</span>円</h2>
-                                <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>(100)</i></p>
-                                <div>
-                                    <div><span>商品コード</span></div>
-                                    <div><span>カラー</span></div>
-                                    <div><span>サイズ</span></div>
-                                    <div><span>素材</span></div>
-                                </div>
-                            </article>
                         </div>
                     </section>
                 </div>

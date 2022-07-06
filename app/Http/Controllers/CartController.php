@@ -28,11 +28,15 @@ class CartController extends Controller
                 $product = Product::where('id', '=', $value)->first();
                 $cart_products[] = $product;
             }
-            dump($cart_products);
+            
         }
+        dump(session('product_id'));
+        $session = session('product_id');
         if (!isset($cart_products)) {
+            // return view('cart/index', compact('session'));
             return view('cart/index');
         } else {
+            // return view('cart/index', compact('session'));
             return view('cart/index', compact('cart_products'));
         }
     }
@@ -54,45 +58,57 @@ class CartController extends Controller
             $product = Product::where('id', '=', $value)->first();
             $cart_products[] = $product;
         }
+        dump(session('product_id'));
+        $session = session('product_id');
         if (!isset($cart_products)) {
-            return view('cart/index');
+            // return view('cart/index', compact('session'));
+            return redirect()->route('product.index');
         } else {
-            return view('cart/index', compact('cart_products'));
+            // return view('cart/index', compact('session'));
+            return redirect()->route('product.index');
         }
     }
 
     public function purchase(Request $request) {
-        $product = Product::where('id', '=', $request->product_id)->first();
+        $product_id_arr = $request->collect("product_id");
+        $wherestr = $product_id_arr->implode(" OR id= ");
+        $products = DB::select('select * from products where id = '.$wherestr);
+        
+        
         $user = Auth::user();
 
-        //在庫を減らす
-        // $product_st = new Product;
-        // $product_st->products_stock = $product->products_stock-1;
-        // $product_st->save();
+        foreach($products as $product){
+            $post = new Purchaselog;
 
-        $post = new Purchaselog;
-        $post->purchase_userid = $user->id;
-        $post->purchase_username = $user->name;
-        $post->purchase_mailaddress = $user->email;
-        $post->purchase_address = $user->address;
+            $post->purchase_userid = $user->id;
+            $post->purchase_username = $user->name;
+            $post->purchase_mailaddress = $user->email;
+            $post->purchase_address = $user->address;
+            
+            // // $product_stock =  new Product;
+            // $product_stock = Product::find($product->id);
+            // $product_stock->id = $product_stock->id;
+            // $product_stock->products_stock = $product->products_stock-1;
+            // $product_stock->save();
 
-        $post->purchase_productid = $product->id;
-        $post->purchase_name = $product->products_name;
-        $post->purchase_code = $product->products_code;
-        $post->purchase_num = 1;
-        $post->purchase_price = $product->products_price;
-        $post->purchase_review = $product->products_review;
-        $post->purchase_tag = $product->products_tag;
-        $post->purchase_category = $product->products_category;
-        $post->purchase_size = $product->products_size;
-        $post->purchase_description = $product->products_description;
-        $post->purchase_color = $product->products_color;
-        $post->purchase_material = $product->products_material;
-        $post->purchase_deliverymethod = $product->products_deliverymethod;
-        $post->save();
+            $post->purchase_productid = $product->id;
+            $post->purchase_name = $product->products_name;
+            $post->purchase_code = $product->products_code;
+            $post->purchase_num = 1;
+            $post->purchase_price = $product->products_price;
+            $post->purchase_review = $product->products_review;
+            $post->purchase_tag = $product->products_tag;
+            $post->purchase_category = $product->products_category;
+            $post->purchase_size = $product->products_size;
+            $post->purchase_description = $product->products_description;
+            $post->purchase_color = $product->products_color;
+            $post->purchase_material = $product->products_material;
+            $post->purchase_deliverymethod = $product->products_deliverymethod;
+            $post->save();
+            SampleController::SampleNotification();
+        };
 
         //完了メール送信
-        SampleController::SampleNotification();
         $request->session()->forget('product_id');
 
         return view('cart/complete');

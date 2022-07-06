@@ -67,11 +67,12 @@ class UserController extends Controller
         $post->products_deliverymethod = $request->products_deliverymethod;
         $post->products_return = $request->products_return;
         $post->products_postage = $request->products_postage;
-        if($request->filled('products_image')) {
+        // if($request->filled('products_image')) {
             $post->products_image = $request->file('products_image')->getClientOriginalName();
+            dump($post->products_image);
             $document = $request->products_image;
             $document->storeAs('',$post->products_image,'public');    
-        }
+        // }
         $post->save();
 
         return redirect()->route('user.index');

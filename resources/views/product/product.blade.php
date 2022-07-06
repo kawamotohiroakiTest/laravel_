@@ -73,7 +73,7 @@
                         <form action="{{ route('cart.index') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                            <input type="submit" value="カートに入れる">
+                            <input type="submit" value="カートに入れる" class="btn btn-success">
                         </form>
                     </p>
                     <p><input type="checkbox" id="like_button" class="hidden_check">

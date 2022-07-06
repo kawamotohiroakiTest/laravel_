@@ -3,7 +3,7 @@
 <body>
   <div id="wrapper">
     <section>
-        <h1 class="text_center cart_h1_title">カート</h1>
+        <h1 class="text_center cart_h1_title">カート </h1>
         @if(isset($cart_products))
         <div class="flex main_cart">
             <section class="cart_product">
@@ -47,7 +47,9 @@
                 <form action="{{ route('cart.purchase') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="d-grid gap-2 product_search_button">
-                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        @foreach($cart_products as $key => $product)
+                            <input type="hidden" name="product_id[{{$key}}]" value="{{ $product->id }}">
+                        @endforeach
                         <input type="submit" value="購入する" class="btn btn-danger">
                     </div>
                 </form>
