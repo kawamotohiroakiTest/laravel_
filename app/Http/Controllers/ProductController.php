@@ -26,6 +26,17 @@ class ProductController extends Controller
         return view('product/category', compact('products'));
     }
 
+    public function search(Request $request)
+    {
+        $key = $request->input('key');
+        $query = Product::query();
+        $query->where('products_name', 'LIKE', "%{$key}%");
+        $products = $query->get();
+        dump($products);
+        return view('product/search', compact('products'));
+    }
+
+
     public function cart()
     {
         return view('product/cart');

@@ -57,8 +57,10 @@
                                 <option value="4">カテゴリ4</option>
                             </select>
                         </div>
-                        <div><input type="text" class="form-control" placeholder="検索" value=""></div>
-                        <div><input type="button" class="btn btn-success" value="検索"></div>
+                        <form action="{{ route('product.search') }}" method="GET" >
+                            <div><input type="text" class="form-control" placeholder="検索" value="" name="key"></div>
+                            <div><input type="submit" class="btn btn-success" value="検索"></div>
+                        </form>
                     </div>
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
