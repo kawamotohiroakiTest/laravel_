@@ -9,8 +9,8 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Purchaselog;
 use Illuminate\Support\Facades\DB;
-use App\Models\Sample;
-use App\Http\Controllers\SampleController;
+use App\Models\Mail;
+use App\Http\Controllers\MailController;
 
 
 
@@ -105,7 +105,7 @@ class CartController extends Controller
             $post->purchase_material = $product->products_material;
             $post->purchase_deliverymethod = $product->products_deliverymethod;
             $post->save();
-            SampleController::SampleNotification();
+            MailController::MailNotification($user->name, $product->products_name, $user->email);
         };
 
         //完了メール送信

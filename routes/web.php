@@ -56,7 +56,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 //メール
 Route::get('sample/mailable/preview', function () {
-    return new App\Mail\SampleNotification();
+    return new App\Mail\MailNotification();
   });
 // Route::get('sample/mailable/send', [App\Http\Controllers\SampleController::class, 'SampleNotification']);
 // Route::get('sample/mailable/send', 'SampleController@SampleNotification');
