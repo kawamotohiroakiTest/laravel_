@@ -26,7 +26,7 @@ class Purchaselog extends Migration
             $table->integer('purchase_price'); //取引商品価格
             $table->float('purchase_review')->nullable()->default(null); //取引商品評価
             $table->integer('purchase_tag')->nullable()->default(null); //取引商品タグ
-            $table->integer('purchase_category')->nullable()->default(null); //取引商品カテゴリ
+            $table->integer('purchase_bigcategory')->nullable()->default(null); //取引商品大カテゴリ
             $table->string('purchase_size', 255)->nullable()->default(null); //取引商品サイズ
             $table->string('purchase_description', 255)->nullable()->default(null); //取引商品詳細説明
             $table->string('purchase_color', 255)->nullable()->default(null); //取引商品色

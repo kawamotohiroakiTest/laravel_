@@ -22,11 +22,10 @@ class ProductController extends Controller
 
     public function category($id)
     {
-        // $products = DB::select('select * from products where products_category = '.$id);
         $products = DB::table('products')
             ->select('*')
             ->where('bigcategory.id', $id)
-            ->leftJoin('bigcategory', 'products_category', '=', 'bigcategory.id')
+            ->leftJoin('bigcategory', 'products_bigcategory', '=', 'bigcategory.id')
             ->get();
         $count = $products->count();
         dump($products);

@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->integer('products_stock'); //在庫
             $table->float('products_review')->nullable()->default(null); //商品評価
             $table->integer('products_tag')->nullable()->default(null);
-            $table->integer('products_category')->nullable()->default(null);
+            $table->integer('products_bigcategory')->nullable()->default(null);//商品大カテゴリ
             $table->string('products_image')->nullable()->default(null);
             $table->string('products_size', 255)->nullable()->default(null); //商品サイズ
             $table->string('products_description', 255)->nullable()->default(null); //商品詳細説明

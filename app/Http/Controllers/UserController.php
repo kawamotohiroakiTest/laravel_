@@ -61,7 +61,7 @@ class UserController extends Controller
         $post->products_stock = $request->products_stock;
         $post->products_review = $request->products_review;
         $post->products_tag = $request->products_tag;
-        $post->products_category = $request->products_category;
+        $post->products_bigcategory = $request->products_bigcategory;
         $post->products_size = $request->products_size;
         $post->products_description = $request->products_description;
         $post->products_color = $request->products_color;

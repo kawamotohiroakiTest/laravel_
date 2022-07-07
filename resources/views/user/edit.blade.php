@@ -33,7 +33,7 @@
             <div class="post_flex">
                 <label for="exampleInputEmail1" class="form-label post_form_label">商品カテゴリー</label>
                 <div class="">
-                    <select name="products_category" id="products_category" class="form-select" data-name="{{ $product->products_category }}">
+                    <select name="products_category" id="products_bigcategory" class="form-select" data-name="{{ $product->products_bigcategory }}">
                         <option value="">選択</option>
                         @foreach($bigcategories as $bigcategory)
                         <option value="{{ $bigcategory->id }}">{{ $bigcategory->bigcategory_name }}</option>
@@ -172,10 +172,10 @@
     }
 </style>
 <script>
-    const products_category = "{{ $product->products_category }}";
+    const products_bigcategory = "{{ $product->products_bigcategory }}";
 
     window.onload = function(){
-        const id_category = document.getElementById("products_category");
+        const id_category = document.getElementById("products_bigcategory");
         id_category.options[id_category.dataset.name].selected = true;
 
         const id_size = document.getElementById("products_size");

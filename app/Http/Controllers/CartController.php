@@ -94,7 +94,7 @@ class CartController extends Controller
             $post->purchase_price = $product->products_price;
             $post->purchase_review = $product->products_review;
             $post->purchase_tag = $product->products_tag;
-            $post->purchase_category = $product->products_category;
+            $post->purchase_bigcategory = $product->products_bigcategory;
             $post->purchase_size = $product->products_size;
             $post->purchase_description = $product->products_description;
             $post->purchase_color = $product->products_color;
