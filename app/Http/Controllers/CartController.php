@@ -74,7 +74,6 @@ class CartController extends Controller
         $wherestr = $product_id_arr->implode(" OR id= ");
         $products = DB::select('select * from products where id = '.$wherestr);
         
-        
         $user = Auth::user();
 
         foreach($products as $product){
@@ -85,11 +84,10 @@ class CartController extends Controller
             $post->purchase_mailaddress = $user->email;
             $post->purchase_address = $user->address;
             
-            // // $product_stock =  new Product;
-            // $product_stock = Product::find($product->id);
-            // $product_stock->id = $product_stock->id;
-            // $product_stock->products_stock = $product->products_stock-1;
-            // $product_stock->save();
+            $product_stock = Product::find($product->id);
+            $product_stock->id = $product_stock->id;
+            $product_stock->products_stock = $product->products_stock-1;
+            $product_stock->save();
 
             $post->purchase_productid = $product->id;
             $post->purchase_name = $product->products_name;
