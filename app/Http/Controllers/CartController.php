@@ -30,7 +30,6 @@ class CartController extends Controller
             }
             
         }
-        dump(session('product_id'));
         $session = session('product_id');
         if (!isset($cart_products)) {
             // return view('cart/index', compact('session'));
@@ -58,7 +57,6 @@ class CartController extends Controller
             $product = Product::where('id', '=', $value)->first();
             $cart_products[] = $product;
         }
-        dump(session('product_id'));
         $session = session('product_id');
         if (!isset($cart_products)) {
             // return view('cart/index', compact('session'));

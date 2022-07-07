@@ -15,74 +15,25 @@
     <section id="top_category">
           <h1>カテゴリから探す</h1>
           <ul class="top_category flex">
-            <li>
-              <div>
-                <div class="top_category_title flex">
-                  <div>
-                    <img src="{{ asset('storage/testimage.jpeg') }}">
+            @foreach($bigcategories as $bigcategory)
+              <li>
+                <div>
+                  <div class="top_category_title flex">
+                    <div>
+                      <img src="{{ asset('storage/testimage.jpeg') }}">
+                    </div>
+                    <a class="top_category_link" href="/category/{{ $bigcategory->id }}"><h2>{{ $bigcategory->bigcategory_name }}</h2></a>
                   </div>
-                  <a class="top_category_link" href="/category"><h2>ベッド</h2></a>
-                </div>
-                <ul class="top_category_detail">
-                  <a class="top_category_link" href=""><li>半袖Tシャツ</li></a>
-                  <a class="top_category_link" href=""><li>長袖Tシャツ</li></a>
-                </ul>
-                <div class="top_category_more">
-                  <a href=""><p>もっと見る</p></a>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div>
-                <div class="top_category_title flex">
-                  <div>
-                    <img src="{{ asset('storage/testimage.jpeg') }}">
+                  <ul class="top_category_detail">
+                    <a class="top_category_link" href=""><li></li></a>
+                    <a class="top_category_link" href=""><li></li></a>
+                  </ul>
+                  <div class="top_category_more">
+                    <a href="/category/{{ $bigcategory->id }}"><p>もっと見る</p></a>
                   </div>
-                  <a class="top_category_link" href="/product"><h2>Tシャツ</h2></a>
                 </div>
-                <ul class="top_category_detail">
-                  <a class="top_category_link" href=""><li>半袖Tシャツ</li></a>
-                  <a class="top_category_link" href=""><li>長袖Tシャツ</li></a>
-                </ul>
-                <div class="top_category_more">
-                  <a href=""><p>もっと見る</p></a>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div>
-                <div class="top_category_title flex">
-                  <div>
-                    <img src="{{ asset('storage/testimage.jpeg') }}">
-                  </div>
-                  <a class="top_category_link" href="/category"><h2>Tシャツ</h2></a>
-                </div>
-                <ul class="top_category_detail">
-                  <a class="top_category_link" href=""><li>半袖Tシャツ</li></a>
-                  <a class="top_category_link" href=""><li>長袖Tシャツ</li></a>
-                </ul>
-                <div class="top_category_more">
-                  <a href=""><p>もっと見る</p></a>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div>
-                <div class="top_category_title flex">
-                  <div>
-                    <img src="{{ asset('storage/testimage.jpeg') }}">
-                  </div>
-                  <a class="top_category_link" href=""><h2>Tシャツ</h2></a>
-                </div>
-                <ul class="top_category_detail">
-                  <a class="top_category_link" href=""><li>半袖Tシャツ</li></a>
-                  <a class="top_category_link" href=""><li>長袖Tシャツ</li></a>
-                </ul>
-                <div class="top_category_more">
-                  <a href=""><p>もっと見る</p></a>
-                </div>
-              </div>
-            </li>
+              </li>
+            @endforeach
           </ul>
     </section>
   </div>

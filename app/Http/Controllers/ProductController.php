@@ -10,7 +10,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('product/index');
+        $bigcategories = DB::table('bigcategory')->get();
+        return view('product/index', compact('bigcategories'));
     }
 
     public function product($id)
@@ -19,10 +20,17 @@ class ProductController extends Controller
         return view('product/product', compact('products'));
     }
 
-    public function category()
+    public function category($id)
     {
-        $products = DB::select('select * from products');
-        return view('product/category', compact('products'));
+        // $products = DB::select('select * from products where products_category = '.$id);
+        $products = DB::table('products')
+            ->select('*')
+            ->where('bigcategory.id', $id)
+            ->leftJoin('bigcategory', 'products_category', '=', 'bigcategory.id')
+            ->get();
+        $count = $products->count();
+        dump($products);
+        return view('product/category', compact('products', 'count'));
     }
 
     public function search(Request $request)

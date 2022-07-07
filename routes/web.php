@@ -34,7 +34,7 @@ Route::get('/post/delete/{id}', [App\Http\Controllers\PostController::class, 'de
 //商品
 Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'product'])->name('product.product');
-Route::get('/category', [App\Http\Controllers\ProductController::class, 'category'])->name('product.category');
+Route::get('/category/{id}', [App\Http\Controllers\ProductController::class, 'category'])->name('product.category');
 Route::get('/search', [App\Http\Controllers\ProductController::class, 'search'])->name('product.search');
 // Route::get('/search?key={key}', [App\Http\Controllers\ProductController::class, 'category'])->name('product.search');
 

@@ -36,13 +36,9 @@
                 <div class="">
                     <select name="products_category" class="form-select">
                         <option value="">選択</option>
-                        <option value="1">ベッド</option>
-                        <option value="2">机</option>
-                        <option value="3">椅子</option>
-                        <option value="4">テーブル</option>
-                        <option value="5">マット</option>
-                        <option value="6">小物</option>
-                        <option value="7">布団</option>
+                        @foreach($bigcategories as $bigcategory)
+                        <option value="{{ $bigcategory->id }}">{{ $bigcategory->bigcategory_name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

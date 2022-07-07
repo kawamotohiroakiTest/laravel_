@@ -12,7 +12,6 @@
             <th nowrap>商品価格</th>
             <th nowrap>商品在庫</th>
             <th nowrap>商品評価</th>
-            <th nowrap>商品カテゴリー</th>
             <th nowrap>商品詳細</th>
             <th nowrap>商品サイズ</th>
             <th nowrap>商品の色</th>
@@ -26,7 +25,6 @@
             <td>{{ $product->products_price }}</td>
             <td>{{ $product->products_stock }}</td>
             <td>{{ $product->products_review }}</td>
-            <td>{{ $product->products_category }}</td>
             <td>{{ $product->products_description }}</td>
             <td>{{ $product->products_size }}</td>
             <td>{{ $product->products_color }}</td>

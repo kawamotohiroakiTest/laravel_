@@ -22,7 +22,8 @@ class UserController extends Controller
     }
     public function create()
     {
-        return view('user/create');
+        $bigcategories = DB::table('bigcategory')->get();
+        return view('user/create', compact('bigcategories'));
     }
     public function delete($id)
     {
@@ -32,7 +33,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $product = Product::where('id', '=', $id)->first();
-        return view('user.edit', compact('product'));
+        $bigcategories = DB::table('bigcategory')->get();
+        return view('user.edit', compact('product','bigcategories'));
     }
     public function store(Request $request)
     {
