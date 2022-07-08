@@ -72,7 +72,7 @@
                                 <article>
                                     <a href="/product/{{ $product->id }}">                                
                                         <p class="product_list_img">
-                                            <img src="{{ asset('storage/testimage.jpeg') }}">
+                                            <img src="{{ asset('storage/'.$product->products_image) }}">
                                         </p>
                                         <p class="product_content_title">{{ $product->products_name }}</p>
                                         <h2><span>{{ number_format($product->products_price) }}</span>円</h2>

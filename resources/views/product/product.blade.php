@@ -44,7 +44,7 @@
                                     <option value="">クイーン</option>
                                 </select>
                             </div>
-                            <p>点で支えるポケットコイルが体にフィットします。<br>側面は３Ｄメッシュで通気性向上。</p>
+                            <p>{{ $product->products_description }}</p>
                             <h2><span>{{ number_format($product->products_price) }}</span>円</h2>
                             <p>仕様・サイズ</p>
                             <p>

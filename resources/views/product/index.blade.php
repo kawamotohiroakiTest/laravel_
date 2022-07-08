@@ -4,12 +4,12 @@
   <div id="wrapper">
     <section>
         <ul class="slick01">
-            <li class="slick-slide"><a href=""><img alt="画像1" src="{{ asset('storage/testimage.jpeg') }}" style="" /></a></li>
-            <li class="slick-slide"><a href=""><img alt="画像2" src="{{ asset('storage/testimage.jpeg') }}" style="" /></a></li>
-            <li class="slick-slide"><a href=""><img alt="画像3" src="{{ asset('storage/testimage.jpeg') }}" style="" /></a></li>
-            <li class="slick-slide"><a href=""><img alt="画像3" src="{{ asset('storage/testimage.jpeg') }}" style="" /></a></li>
-            <li class="slick-slide"><a href=""><img alt="画像3" src="{{ asset('storage/testimage.jpeg') }}" style="" /></a></li>
-            <li class="slick-slide"><a href=""><img alt="画像3" src="{{ asset('storage/testimage.jpeg') }}" style="" /></a></li>
+            <li class="slick-slide"><a href=""><img alt="画像1" src="{{ asset('storage/top1.jpeg') }}" style="" /></a></li>
+            <li class="slick-slide"><a href=""><img alt="画像2" src="{{ asset('storage/top2.jpeg') }}" style="" /></a></li>
+            <li class="slick-slide"><a href=""><img alt="画像3" src="{{ asset('storage/top3.jpeg') }}" style="" /></a></li>
+            <li class="slick-slide"><a href=""><img alt="画像3" src="{{ asset('storage/top4.webp') }}" style="" /></a></li>
+            <li class="slick-slide"><a href=""><img alt="画像3" src="{{ asset('storage/top5.webp') }}" style="" /></a></li>
+            <li class="slick-slide"><a href=""><img alt="画像3" src="{{ asset('storage/top6.webp') }}" style="" /></a></li>
         </ul>
     </section>
     <section id="top_category">
@@ -20,7 +20,7 @@
                 <div>
                   <div class="top_category_title flex">
                     <div>
-                      <img src="{{ asset('storage/testimage.jpeg') }}">
+                      <img src="{{ asset('storage/'.$bigcategory->bigcategory_image) }}">
                     </div>
                     <a class="top_category_link" href="/category/{{ $bigcategory->id }}"><h2>{{ $bigcategory->bigcategory_name }}</h2></a>
                   </div>

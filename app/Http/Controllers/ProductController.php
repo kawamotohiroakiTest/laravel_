@@ -11,6 +11,7 @@ class ProductController extends Controller
     public function index()
     {
         $bigcategories = DB::table('bigcategory')->get();
+        dump($bigcategories);
         return view('product/index', compact('bigcategories'));
     }
 
@@ -22,13 +23,17 @@ class ProductController extends Controller
 
     public function category($id)
     {
-        $products = DB::table('products')
-            ->select('*')
-            ->where('bigcategory.id', $id)
+        $products2 = DB::table('products')->get();
+        $products = DB::table('products') //id被りのため修正
+            ->select('products.id','products.products_name','products.products_code',
+            'products.products_price','products.products_stock','products.products_review','products.products_bigcategory','products.products_image','products.products_size',
+            'products.products_description','products.products_color','products.products_material','products.products_deliverymethod',
+            'products.products_return','products.products_postage','bigcategory.bigcategory_name')
+            ->where('products_bigcategory', $id)
             ->leftJoin('bigcategory', 'products_bigcategory', '=', 'bigcategory.id')
             ->get();
         $count = $products->count();
-        dump($products);
+        dump($count);
         return view('product/category', compact('products', 'count'));
     }
 

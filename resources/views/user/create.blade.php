@@ -32,9 +32,9 @@
         </div>
         <div class="post_form_area">
             <div class="post_flex">
-                <label for="exampleInputEmail1" class="form-label post_form_label">商品カテゴリー</label>
+                <label for="exampleInputEmail1" class="form-label post_form_label">商品大カテゴリー</label>
                 <div class="">
-                    <select name="products_category" class="form-select">
+                    <select name="products_bigcategory" class="form-select">
                         <option value="">選択</option>
                         @foreach($bigcategories as $bigcategory)
                         <option value="{{ $bigcategory->id }}">{{ $bigcategory->bigcategory_name }}</option>

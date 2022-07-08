@@ -56,38 +56,55 @@
             <section class="content">
                 <div class="flex img_detail">
                     <section class="category_main">
-                        <h1 class="product_title">{{ $products[0]->bigcategory_name }}</h1>
-                        <p>点で支えるポケットコイルが体にフィットします。<br>側面は３Ｄメッシュで通気性向上。</p>
-                        <div class="flex category_count_area">
-                            <p>全<span class="category_count_all">{{ $count }}</span>件　　　<span>1</span>〜<span>{{ $count }}</span>件</p>
-                            <div class="category_count">
-                                <select name="" class="form-select">
-                                    <option value="">おすすめ順</option>
-                                    <option value="">価格が安い順</option>
-                                    <option value="">評価が高い順</option>
-                                </select>
+                        @if ($count != 0)
+                            <h1 class="product_title">{{ $products[0]->bigcategory_name }}</h1>
+                            <p>点で支えるポケットコイルが体にフィットします。<br>側面は３Ｄメッシュで通気性向上。</p>
+                            <div class="flex category_count_area">
+                                <p>全<span class="category_count_all">{{ $count }}</span>件　　　<span>1</span>〜<span>{{ $count }}</span>件</p>
+                                <div class="category_count">
+                                    <select name="" class="form-select">
+                                        <option value="">おすすめ順</option>
+                                        <option value="">価格が安い順</option>
+                                        <option value="">評価が高い順</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product_list">
-                            @foreach($products as $product)
-                                <article>
-                                    <a href="/product/{{ $product->id }}">                                
-                                        <p class="product_list_img">
-                                            <img src="{{ asset('storage/testimage.jpeg') }}">
-                                        </p>
-                                        <p class="product_content_title">{{ $product->products_name }}</p>
-                                        <h2><span>{{ number_format($product->products_price) }}</span>円</h2>
-                                        <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>({{ $product->products_review }})</i></p>
-                                        <div class="flex product_tag_area">
-                                            <div><span>商品コード</span></div>
-                                            <div><span>カラー</span></div>
-                                            <div><span>サイズ</span></div>
-                                            <div><span>素材</span></div>
-                                        </div>
-                                    </a>
-                                </article>
-                            @endforeach
-                        </div>
+                            <div class="product_list">
+                                @foreach($products as $product)
+                                    <article>
+                                        <a href="/product/{{ $product->id }}">                                
+                                            <p class="product_list_img">
+                                                <img src="{{ asset('storage/'.$product->products_image) }}">
+                                            </p>
+                                            <p class="product_content_title">{{ $product->products_name }}</p>
+                                            <h2><span>{{ number_format($product->products_price) }}</span>円</h2>
+                                            <p><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>({{ $product->products_review }})</i></p>
+                                            <div class="flex product_tag_area">
+                                                <div><span>商品コード</span></div>
+                                                <div><span>カラー</span></div>
+                                                <div><span>サイズ</span></div>
+                                                <div><span>素材</span></div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                @endforeach
+                            </div>
+                        @endif
+                    </section>
+                </div>
+                <div class="flex img_detail">
+                    <section class="category_main">
+                        @if ($count == 0)
+                            <h1 class="product_title">該当カテゴリの商品はありません</h1>
+                            <p></p>
+                            <div class="flex category_count_area">
+                                <div class="category_count">
+                                </div>
+                            </div>
+                            <div class="product_list">
+                                <p>該当カテゴリーの商品はありません</p>
+                            </div>
+                        @endif
                     </section>
                 </div>
             </section>
