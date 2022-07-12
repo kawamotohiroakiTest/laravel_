@@ -11,7 +11,21 @@ use Illuminate\Database\Seeder;
 
 class ProductsTest extends TestCase
 {
-    // use RefreshDatabase;
+
+    public function setUp(): void
+    {
+         parent::setUp();
+
+         //ランダムに10件登録
+         //Product::factory()->count(10)->create(); 
+
+         //テーブル情報を削除する
+         //use RefreshDatabase;
+         
+         //DBに接続しているか調べる
+         //dd(env('APP_ENV'), env('DB_DATABASE'), env('DB_CONNECTION'));
+     }
+ 
    
     public function test_createProduct() {
         $post = new Product();
@@ -36,20 +50,6 @@ class ProductsTest extends TestCase
         $this->assertNotNull($readUser);
 
     }
-//    public function setUp(): void
-//    {
-//     parent::setUp();
-   
-//     $this->seed('ProductsTableSeeder');
-
-//    }
-//    public function test_setUp() {
-//     parent::setUp();
-//     Tests\Feature\Artisan::call('migrate:refresh');
-//     Tests\Feature\Artisan::call('db:seed');
-// }
-
-
 
     /**
      * A basic test example.

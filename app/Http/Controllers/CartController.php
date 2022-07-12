@@ -13,34 +13,23 @@ use App\Models\Mail;
 use App\Http\Controllers\MailController;
 
 
-
-
 class CartController extends Controller
 {
-    //カートの中身を出すメソッドを作る
-
+    //ヘッダーのカートボタンを押した
     public function index(Request $request)
     {
-        if ($request->session()->has('product_id')) {
-            $get = $request->session()->get('product_id');
-            $cart_products = [];
-            foreach($get as $key => $value) {
-                $product = Product::where('id', '=', $value)->first();
-                $cart_products[] = $product;
-            }
-            
+        $isAddCart = Cart::isAddCart($request);
+        if($isAddCart) {
+            $cart_products = Cart::addCart($request);
         }
-        $session = session('product_id');
         if (!isset($cart_products)) {
-            // return view('cart/index', compact('session'));
             return view('cart/index');
         } else {
-            // return view('cart/index', compact('session'));
-            return view('cart/index', compact('cart_products'));
+            return view('cart/index');
         }
     }
 
-    //カートに入れた場合はこちら
+    //カートに入れるボタンを押した
     public function indexpost(Request $request)
     {
         if (!$request->session()->has('product_id')) { //カートが空なら配列を作る
