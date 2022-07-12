@@ -23,7 +23,7 @@ class ProductFactory extends Factory
             'products_stock' => $this->faker->randomNumber(5),
             'products_review' => $this->faker->randomNumber(2),
             'products_tag' => $this->faker->randomNumber(2),
-            'products_category' => $this->faker->randomNumber(2),
+            'products_bigcategory' => $this->faker->randomNumber(2),
             'products_image' => $this->faker->randomNumber(4),
             'products_size' => $this->faker->word(),
             'products_description' => $this->faker->realText(100),
@@ -32,7 +32,7 @@ class ProductFactory extends Factory
             'products_deliverymethod' => $this->faker->randomNumber(1),
             'products_return' => $this->faker->randomNumber(1),
             'products_postage' => $this->faker->randomNumber(3),
-            'products_deleteflag' => $this->faker->randomNumber(1),
+            'products_deleteflag' => $this->faker->randomNumber(1), 
         ];
     }
 }
