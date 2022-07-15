@@ -15,21 +15,25 @@ use App\Http\Controllers\MailController;
 
 class CartController extends Controller
 {
-    //ヘッダーのカートボタンを押した
+    //カートの中身を出すメソッドを作る
     public function index(Request $request)
     {
+        // $request->session()->forget('product_id');
+        // dd($request->session());
+        
         $isAddCart = Cart::isAddCart($request);
         if($isAddCart) {
             $cart_products = Cart::addCart($request);
         }
+        // dd($cart_products);
         if (!isset($cart_products)) {
             return view('cart/index');
         } else {
-            return view('cart/index');
+            return view('cart/index',compact('cart_products'));
         }
     }
 
-    //カートに入れるボタンを押した
+    //カートに入れた場合はこちら
     public function indexpost(Request $request)
     {
         if (!$request->session()->has('product_id')) { //カートが空なら配列を作る
