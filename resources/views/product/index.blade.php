@@ -13,7 +13,7 @@
         </ul>
     </section>
     <section id="top_category">
-          <h1>カテゴリから探す</h1>
+          <h1>カテゴリから探す111111</h1>
           <ul class="top_category flex">
             @foreach($bigcategories as $bigcategory)
               <li>

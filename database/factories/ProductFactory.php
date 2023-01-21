@@ -1,7 +1,6 @@
 <?php
 
 namespace Database\Factories;
-
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProductFactory extends Factory
@@ -14,6 +13,11 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+        $parameters = [
+            'category_id' => 2503,  // DIY、工具,
+            'hits' => 50            // 50件取得
+        ];
+        $this->faker->product($parameters);
         return [
             //
             'products_userid' => $this->faker->randomNumber(1),

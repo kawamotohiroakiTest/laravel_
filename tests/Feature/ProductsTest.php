@@ -7,6 +7,8 @@ use Tests\TestCase;
 use App\Models\Product;
 use Tests\Feature\Auth;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 
 
 class ProductsTest extends TestCase
@@ -25,6 +27,9 @@ class ProductsTest extends TestCase
          //DBに接続しているか調べる
          //dd(env('APP_ENV'), env('DB_DATABASE'), env('DB_CONNECTION'));
      }
+
+
+
  
    
     public function test_createProduct() {
